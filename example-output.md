@@ -1,6 +1,6 @@
 # Exemplo de Output: Plano de Desenvolvimento
 
-Este é um exemplo de como o arquivo será gerado pela skill `plan-stories`.
+Este é um exemplo de como o arquivo será gerado pela skill `user-stories`.
 
 Para o goal **"implementar autenticação JWT no backend"**, o arquivo gerado seria:  
 **`.context/jwt-autenticacao-backend-plan.md`**

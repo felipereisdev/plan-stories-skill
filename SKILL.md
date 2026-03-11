@@ -1,5 +1,5 @@
 ---
-name: plan-stories
+name: user-stories
 description: |
   Universal Agent Skill - Works with Claude Code, OpenCode, Cursor, or any LLM supporting Agent Skills.
   Analyzes a codebase and breaks down a goal into implementable user stories with clear acceptance criteria.

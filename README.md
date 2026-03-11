@@ -1,4 +1,4 @@
-# Plan Stories Skill 🎯
+# User Stories Skill 🎯
 
 [![GitHub stars](https://img.shields.io/github/stars/felipereisdev/plan-stories-skill?style=social)](https://github.com/felipereisdev/plan-stories-skill)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -37,7 +37,7 @@ Then configure your AI assistant to load skills from the cloned directory.
 ```bash
 # Clone into your global skills
 mkdir -p ~/.claude/skills
-ln -s "$(pwd)/plan-stories" ~/.claude/skills/plan-stories
+ln -s "$(pwd)/user-stories" ~/.claude/skills/user-stories
 ```
 
 ### Option 3: OpenCode/Codex
@@ -45,7 +45,7 @@ ln -s "$(pwd)/plan-stories" ~/.claude/skills/plan-stories
 ```bash
 # Clone into your global skills
 mkdir -p ~/.codex/skills
-ln -s "$(pwd)/plan-stories" ~/.codex/skills/plan-stories
+ln -s "$(pwd)/user-stories" ~/.codex/skills/user-stories
 ```
 
 ### Option 4: Cursor
@@ -53,7 +53,7 @@ ln -s "$(pwd)/plan-stories" ~/.codex/skills/plan-stories
 ```bash
 # Clone into your Cursor skills directory
 mkdir -p ~/.cursor/skills
-ln -s "$(pwd)/plan-stories" ~/.cursor/skills/plan-stories
+ln -s "$(pwd)/user-stories" ~/.cursor/skills/user-stories
 ```
 
 ## 🚀 Usage
@@ -63,25 +63,25 @@ Invoke the skill with your goal:
 ### Universal
 
 ```
-/plan-stories "implement user authentication with JWT"
+/user-stories "implement user authentication with JWT"
 ```
 
 ### Claude Code
 
 ```bash
-/plan-stories "implement user authentication with JWT"
+/user-stories "implement user authentication with JWT"
 ```
 
 ### OpenCode
 
 ```
-@plan-stories "implement user authentication with JWT"
+@user-stories "implement user authentication with JWT"
 ```
 
 ### Cursor
 
 ```
-/plan-stories "implement user authentication with JWT"
+/user-stories "implement user authentication with JWT"
 ```
 
 ## 📄 Output
