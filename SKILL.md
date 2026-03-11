@@ -26,7 +26,15 @@ You are an expert technical analyst and product planner. Your job is to analyze 
 
 ## Goal to Analyze
 
-$ARGUMENTS
+**Check if a goal was provided:**
+
+- **If $ARGUMENTS is empty or not provided:**
+  Stop and ask the user: "What goal would you like to break down into user stories? Please describe the feature or task you want to plan."
+  
+  Wait for the user to provide the goal before proceeding.
+
+- **If $ARGUMENTS is provided:**
+  Use the goal directly: $ARGUMENTS
 
 ## Your Mission
 
