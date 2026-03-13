@@ -17,6 +17,7 @@
 - **Dependency Ordering** - Stories ordered so earlier ones enable later ones
 - **Clear Acceptance Criteria** - Every story has verifiable completion criteria
 - **Dynamic File Naming** - Generates descriptive filenames based on your goal
+- **Multiple Output Formats** - Choose between JSON (default) or Gherkin (BDD)
 - **Plan Mode Compatible** - Works safely without making code changes
 - **Universal Compatibility** - Works with any LLM supporting Agent Skills
 
@@ -58,35 +59,53 @@ ln -s "$(pwd)/user-stories" ~/.cursor/skills/user-stories
 
 ## 🚀 Usage
 
-Invoke the skill with your goal:
+Invoke the skill with your goal and optional format:
 
 ### Universal
 
-```
+```bash
+# JSON format (default)
 /user-stories "implement user authentication with JWT"
+
+# Gherkin format (BDD)
+/user-stories "implement user authentication with JWT" --format=gherkin
 ```
 
 ### Claude Code
 
 ```bash
+# JSON format (default)
 /user-stories "implement user authentication with JWT"
+
+# Gherkin format (BDD)
+/user-stories "implement user authentication with JWT" --format=gherkin
 ```
 
 ### OpenCode
 
-```
+```bash
+# JSON format (default)
 @user-stories "implement user authentication with JWT"
+
+# Gherkin format (BDD)
+@user-stories "implement user authentication with JWT" --format=gherkin
 ```
 
 ### Cursor
 
-```
+```bash
+# JSON format (default)
 /user-stories "implement user authentication with JWT"
+
+# Gherkin format (BDD)
+/user-stories "implement user authentication with JWT" --format=gherkin
 ```
 
 ## 📄 Output
 
-Creates `.context/[goal-slug]-plan.md` with structured user stories:
+Creates `.context/[goal-slug]-plan.md` with structured user stories.
+
+### JSON Format (Default)
 
 ```json
 [
@@ -104,13 +123,42 @@ Creates `.context/[goal-slug]-plan.md` with structured user stories:
 ]
 ```
 
+### Gherkin Format (BDD)
+
+```gherkin
+# Complexity: M
+# Dependencies: []
+# Files: prisma/schema.prisma, src/models/User.ts
+
+Feature: Create user model and database schema
+  As a developer
+  I want a user model with authentication fields
+  So that I can securely store login data
+
+  Scenario: Prisma schema has all required fields
+    Given the Prisma configuration exists
+    When I define the User model in schema.prisma
+    Then it should have fields: id, email, password_hash, name, created_at, updated_at
+
+  Scenario: Database migration is created
+    Given the User model is defined
+    When I run prisma migrate dev
+    Then a migration SQL file should be generated
+```
+
 ## 🎯 Examples
 
-| Goal | Generated File |
-|------|----------------|
-| "implement JWT authentication" | `.context/jwt-authentication-plan.md` |
-| "create Stripe payment API" | `.context/stripe-payment-api-plan.md` |
-| "add image upload feature" | `.context/image-upload-feature-plan.md` |
+| Goal | Generated File | Format |
+|------|----------------|--------|
+| "implement JWT authentication" | `.context/jwt-authentication-plan.md` | JSON (default) |
+| "implement JWT authentication --format=gherkin" | `.context/jwt-authentication-plan.md` | Gherkin |
+| "create Stripe payment API" | `.context/stripe-payment-api-plan.md` | JSON (default) |
+| "add image upload feature" | `.context/image-upload-feature-plan.md` | JSON (default) |
+
+### When to Use Each Format
+
+- **JSON**: Best for technical planning, estimation, and integration with tools
+- **Gherkin**: Best for BDD workflows, test automation, and stakeholder communication
 
 ## 🔧 How It Works
 
@@ -129,6 +177,13 @@ This skill follows the [Agent Skills Standard](https://agentskills.io), making i
 - `Bash` - Directory operations
 
 Runs in `context: fork` with `agent: Explore` for safe, read-only analysis.
+
+## 📚 Example Files
+
+See the example output files for reference:
+
+- **JSON Format**: [`example-output.md`](example-output.md)
+- **Gherkin Format**: [`example-gherkin-output.md`](example-gherkin-output.md)
 
 ## 🤝 Contributing
 
